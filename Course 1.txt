@@ -30,7 +30,40 @@ Technological skills might include familiarity with tools for documentation, mod
 Starting as an entry-level BA, you might focus on basic requirements gathering, but as you advance to senior roles, responsibilities grow to include leading projects, strategic advising, or mentoring. Specializations can be in industries (e.g., healthcare BA), technical areas (e.g., ERP expert), methodologies (e.g., Lean or Six Sigma for process efficiency), or product development.
 From there, transitions are common to roles like systems analyst (more tech-focused), project manager (overseeing timelines), or data scientist (deep analytics). To get started, combine education (e.g., degrees in business admin, IT, or finance), certifications (like ECBA for entry-level, CAP for analytics, or CBAP for advanced), and hands-on experience through internships or projects.
 
-
-
 8.BA Steps
 Initiation and planning, requirements elicitation and gathering, requirements analysis and specification, solution design, implementation, solution evaluation, closure
+
+Initation and planning:
+Identify a business problem, Understand the current state (What do we have right now), Define the scope of the analysis (How big are we going)
+Identify and engage with the stakeholders (Understanding the needs and expectations)
+Define objectivesand scope, Identify the boundries
+
+Requirements Elicitation and Gathering:
+Interviews,workshops,surveys,observations
+Documentation [BRD, Use Cases, User Stories, Functional Specifications]
+Prioritization [Business Value, urgency, and feasibility]
+
+Requirements analysis and specification:
+Analyze, identifying gaps between the current and future states, 
+Validate, feasibility analysis and impact assessment (How possible is it? and does it even need to be done?)
+Model, Porcessing data, models, flow diagrms, or ERD (Entity Relationship Diagrams)
+
+Solution Design:
+Design the solution, prototyping, mock-ups, design specification
+Align with business objectives, continuous feedback from stakeholders
+Evaluate alternatives alternatives, based on cost time cost and impact criteria
+
+implementation:
+Oversee Implementation, continuous monitoring, guidance
+Change management, User Training, support
+Manage Risks, contingency plans
+
+Solution Evaluation:
+Testing the solution, functional testing, user acceptance testing, performance testing
+Validate the solution, meeting the business objectives
+Assessing performance, feedback collection, measuring the impact (based on criteria about the solution itself)
+
+Closure:
+Document learnings, recommendations for future projects
+Finalize documentation, process documents, training materials, and user guides
+Obtain formal approval, deliverables met? stakeholders satisfied?
