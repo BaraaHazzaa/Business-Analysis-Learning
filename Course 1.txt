@@ -1,3 +1,5 @@
+-============INTRO============-
+
 1. What is Business Analysis?
 Business analysis is essentially the process of identifying an organization's needs and then figuring out the best solutions to address them. It's not just about spotting problems; it's a structured framework that involves understanding those needs deeply, defining clear requirements, assessing how changes will impact the business, and ultimately delivering solutions that align with the organization's overall goals.
 For instance, solutions could include developing new software or products, improving existing processes to make them more efficient, driving organizational changes like restructuring teams, creating strategic plans for long-term growth, or even developing policies to guide operations. The key flow is: start by truly grasping the business needs, document requirements precisely, evaluate the ripple effects of any changes, and ensure the final solution fits seamlessly with what the organization aims to achieve. This disciplined approach helps avoid guesswork and ensures that efforts lead to meaningful outcomes.
@@ -29,6 +31,8 @@ Technological skills might include familiarity with tools for documentation, mod
 7. Career Progression and Specializations
 Starting as an entry-level BA, you might focus on basic requirements gathering, but as you advance to senior roles, responsibilities grow to include leading projects, strategic advising, or mentoring. Specializations can be in industries (e.g., healthcare BA), technical areas (e.g., ERP expert), methodologies (e.g., Lean or Six Sigma for process efficiency), or product development.
 From there, transitions are common to roles like systems analyst (more tech-focused), project manager (overseeing timelines), or data scientist (deep analytics). To get started, combine education (e.g., degrees in business admin, IT, or finance), certifications (like ECBA for entry-level, CAP for analytics, or CBAP for advanced), and hands-on experience through internships or projects.
+
+-===========Business Analysis Process=============-
 
 8.BA Steps
 Initiation and planning, requirements elicitation and gathering, requirements analysis and specification, solution design, implementation, solution evaluation, closure
@@ -67,3 +71,44 @@ Closure:
 Document learnings, recommendations for future projects
 Finalize documentation, process documents, training materials, and user guides
 Obtain formal approval, deliverables met? stakeholders satisfied?
+
+-==========Requirements Engineering==============-
+
+Requirement Gathering:
+It's a corner-stone of the BA process, with a structured approach and effective engagement, we get the best possible Requirements to satisfy stakeholders.
+
+Importance:
+Clarity and alignment
+Scope definition
+Risk mitigation
+Cost efficiency
+
+Steps:
+Elicitation (Interviews, Surveys, Workshops, Observation, Existing document analysis)
+Documentation(Business Requirements Document [BRD], Functional Requirements Document [FRD], Use Cases And User Stories, Wireframes And Prototypes)
+Analysis
+validation
+management
+
+Requirements Analysis:
+Gap Analysis (The gap between the current state and future state, including steps we should take to get there)
+Feasibility Analysis (Assess the technical, financial, operational feasibility of proposed solutions)
+Prioritization (Based on value, urgency, and cost)
+
+Requirements Validation:
+Review Sessions
+Prototyping and simulations
+Traceability matrix
+
+Requirements management:
+Change management
+Version Control
+Clear communication
+
+
+CHALLENGES:
+Ambiguity
+Stakeholder misalignment
+Scope creep
+Communication barriers
+Changing Requirements
