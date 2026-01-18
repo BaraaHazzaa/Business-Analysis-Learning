@@ -9,6 +9,7 @@ This repository contains my learning notes and progress as I study Business Anal
   - Role of a Business Analyst
   - Key domains and specializations
   - Required skills and career progression
+  - Business Analysis Steps
 
 ## 📖 Topics Covered
 
