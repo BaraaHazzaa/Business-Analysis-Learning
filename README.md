@@ -19,6 +19,7 @@ This repository contains my learning notes and progress as I study Business Anal
 - Solution design and evaluation
 - Stakeholder management
 - Career paths and certifications
+- Structured stpes in the BA process
 
 ## 🎯 Learning Goals
 
