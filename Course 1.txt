@@ -112,3 +112,42 @@ Stakeholder misalignment
 Scope creep
 Communication barriers
 Changing Requirements
+
+-=============Important Tools=============-
+requirements gathering and management tools (Jira, Confluence, Visio)
+modeling and diagramming tools (LucidChart, Draw.io, Gliffy)
+data analysis and reporting tools (Excel, Tableau, Power BI, Google Looker)
+project management tools (Trello, Google project, Asana)
+communication and collaboration tools (Slack, teams, PowerPoint, Zoom)
+and agile and DevOps tools (Rally, Jira Agile, Trello, VersionOne)
+
+
+-=============Techniques For Business Analysis==============-
+Elicitation Techniques:
+Used to gather detailed requirements.
+-CATWOE (Customers Actors Transformation Process Worldview Owner Environmental Constraints)
+-Document Analysis, reviewing existing documentation
+
+Modeling Techniques:
+Used to model data
+-BPMN (Business Process Modeling Notation), Flowcharts
+-ERD, illustrating customers or orders as entities
+
+Analytical Techniques:
+SWOT (Strengths Weaknesses opportunities threats)
+PESTLE analysis (Political Economical Social Technological Legal Environmental), factors that impact the business or project.
+
+Decision Making Techniques:
+Decision Trees, modeling decsions and potential consequences
+MCDA (Multiple Criteria Decision Analysis), multiple criteria for operations
+MoSCoW (Must Have Should Have Could Have Wont Have)
+
+Validation And Testing Techinques:
+User acceptance testing
+Prototyping, validating design and gathering feedback
+Traceability matrices, tracking all changes
+
+Documentation Techniques:
+BRD (Business Requirements Document), serves as the contract between stakeholders and project team.
+FSD (fUunctional Specification Document), specific features needed
+Use Case Document, describes interactions between users and the system, outlining steps to acheive specific goals
