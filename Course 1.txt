@@ -151,3 +151,10 @@ Documentation Techniques:
 BRD (Business Requirements Document), serves as the contract between stakeholders and project team.
 FSD (fUunctional Specification Document), specific features needed
 Use Case Document, describes interactions between users and the system, outlining steps to acheive specific goals
+
+Agile Techniques:
+SCRUM
+Kanban, limits work-in-progress, tracks tasks—think
+
+LEAN BA:
+eliminating waste, improving performance
