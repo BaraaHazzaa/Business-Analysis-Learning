@@ -305,3 +305,100 @@ Every Excel formula follows a consistent syntax made of these elements:
 Alt + =               // AutoSum shortcut
 Double-click fill handle // Auto-fill formula down column
 Ctrl + 1              // Open Format Cells dialog
+
+---
+
+### Common Statistical Functions
+Excel provides built-in statistical functions accessible via **Home → Editing → AutoSum dropdown** or **Formulas → Function Library**.
+
+| Function | Purpose | How to Use | Notes |
+|---------|---------|------------|-------|
+| **AVERAGE** | Calculates mean of values | `=AVERAGE(B2:B13)` | Ignores text/blank cells |
+| **MIN** | Finds smallest value | `=MIN(B2:B13)` | Returns lowest numeric value |
+| **MAX** | Finds largest value | `=MAX(B2:B13)` | Returns highest numeric value |
+| **COUNT** | Counts numeric entries | `=COUNT(B2:B13)` | Excludes text, blanks, errors |
+| **MEDIAN** | Finds middle value | `=MEDIAN(B2:B13)` | • Odd count: exact middle value<br>• Even count: average of two middle values |
+
+#### Step-by-Step Workflow:
+1. Add row headings: `Average`, `Minimum`, `Maximum`, `Count`, `Median`
+2. In B20:  
+   - Click **Home → AutoSum → Average**  
+   - Adjust range from default to `B2:B13`  
+   - Press `Enter`
+3. **Copy across**: Use Fill Handle to drag formula from B20 to E20
+4. Repeat for MIN (B21), MAX (B22), COUNT (B23)
+5. For MEDIAN (B24):  
+   - **AutoSum → More Functions → Statistical → MEDIAN**  
+   - Set range to `B2:B13`  
+   - Copy across to E24
+
+> 💡 **Pro Tip**: Always verify and adjust the auto-selected range—Excel often guesses incorrectly!
+
+---
+
+### Function Categories & Key Examples
+Access all functions via **Formulas tab → Function Library group**:
+
+| Category | Key Functions | Use Cases |
+|----------|---------------|-----------|
+| **Recently Used** | Dynamic list | Quick access to your frequent functions |
+| **Financial** | `ACCRINT`, `RATE`, `PMT` | Loan calculations, investment analysis |
+| **Logical** | `IF`, `AND`, `OR` | Conditional logic, decision rules |
+| **Text** | `CONCAT`, `FIND`, `SEARCH` | • `CONCAT`: Joins text (modern replacement for `CONCATENATE`)<br>• `FIND`/`SEARCH`: Locate substrings (`FIND` is case-sensitive) |
+| **Date & Time** | `NETWORKDAYS`, `WEEKDAY`, `WEEKNUM` | Business day calculations, date formatting |
+| **Lookup & Reference** | `VLOOKUP`, `HLOOKUP`, `SORTBY` | Data matching, dynamic sorting |
+| **Math & Trig** | `SUMIF`, `SUMPRODUCT`, `POWER` | Conditional sums, matrix operations, exponents |
+| **Statistical** | `AVERAGE`, `MEDIAN`, `STDEV` | Descriptive statistics (beyond basic AutoSum) |
+| **More Functions** | Engineering, Information | Specialized technical calculations |
+
+> ⚠️ **Note**: `CONCATENATE` still works for backward compatibility, but `CONCAT` is preferred in newer Excel versions.
+
+---
+
+### Finding Functions Efficiently
+
+#### Method 1: Insert Function Dialog Box
+1. Go to **Formulas → Insert Function** (or press `Shift + F3`)
+2. Choose approach:
+   - **Browse by category**: Select category → pick function
+   - **Search**: Type function name → click **Go** → select from results
+   - **All functions**: Alphabetical list of all 400+ functions
+
+#### Method 2: Formula AutoComplete
+- Start typing `=` followed by function name (e.g., `=vlo`)
+- Excel shows matching functions with tooltips
+- Press `Tab` to accept suggestion
+
+#### Method 3: Function Arguments Helper
+- After typing function name + `(`, Excel displays syntax guide
+- Example: `VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`
+- Hover over arguments to see descriptions
+
+---
+
+### Critical Best Practices
+
+| Practice | Why It Matters |
+|----------|----------------|
+| **Always validate ranges** | AutoSum often selects wrong ranges—manually verify `B2:B13` vs `B2:B20` |
+| **Use structured references** | When possible, convert data to **Tables** (`Ctrl + T`) for self-documenting formulas like `=AVERAGE(Sales[Q1])` |
+| **Prefer newer functions** | Use `CONCAT` instead of `CONCATENATE`, `XLOOKUP` instead of `VLOOKUP` (if available) |
+| **Document complex formulas** | Add comments (`Shift + F2`) explaining non-obvious logic |
+| **Test edge cases** | Verify how functions handle:<br>• Blank cells<br>• Text in numeric ranges<br>• #DIV/0! errors |
+
+> 💡 **Real-World Insight**:  
+> Data Analysts spend 80% of time cleaning data—statistical functions only work correctly on **clean, numeric data**. Always check for hidden text, spaces, or error values first!
+
+---
+
+### Quick Reference: Essential Analyst Functions
+
+| Function | Syntax | Example |
+|----------|--------|---------|
+| **SUMIF** | `=SUMIF(range, criteria, [sum_range])` | `=SUMIF(A2:A10, ">100", B2:B10)` |
+| **VLOOKUP** | `=VLOOKUP(lookup, table, col, [range_lookup])` | `=VLOOKUP("Toyota", A2:D100, 3, FALSE)` |
+| **IF** | `=IF(logical_test, value_if_true, value_if_false)` | `=IF(B2>100, "High", "Low")` |
+| **CONCAT** | `=CONCAT(text1, [text2], ...)` | `=CONCAT(A2, " ", B2)` |
+| **NETWORKDAYS** | `=NETWORKDAYS(start_date, end_date, [holidays])` | `=NETWORKDAYS(TODAY(), TODAY()+30)` |
+
+---
