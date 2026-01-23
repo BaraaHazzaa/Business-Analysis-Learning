@@ -1,5 +1,15 @@
-# IBM Business Analysis Course: Excel Track  
+# IBM Business Analysis Course: Excel Track
 *Comprehensive Notes for Revision*
+
+## Table of Contents
+- [Video 1: Introduction to Spreadsheets](#video-1-introduction-to-spreadsheets)
+- [Video 2: Spreadsheet Basics, Navigation & Data Selection](#video-2-spreadsheet-basics-navigation--data-selection)
+- [Essential Excel Keyboard Shortcuts](#essential-excel-keyboard-shortcuts)
+- [Key Insights from Data Professionals](#key-insights-from-data-professionals)
+- [Formula Fundamentals](#formula-fundamentals)
+- [Statistical Functions and Categories](#statistical-functions-and-categories)
+- [Cell References](#cell-references)
+- [Formula Errors and Troubleshooting](#formula-errors-and-troubleshooting)
 
 ---
 
@@ -163,9 +173,9 @@
 
 ---
 
-### 💡 Key Insights from Data Professionals
+## Key Insights from Data Professionals
 
-#### ✅ **Advantages of Spreadsheets**
+### ✅ Advantages of Spreadsheets
 | Benefit | Description | Professional Context |
 |---------|-------------|----------------------|
 | **Visual Clarity** | Data is cleanly laid out in tabular format, enabling easy visual inspection of structure, formats, and values. | *"You can see all the data cleanly laid out... very clear to anyone looking at a spreadsheet exactly what the data is."* |
@@ -174,7 +184,7 @@
 | **Universal Accessibility** | No specialized software required. Serves as a "common language" for business communication. | *"We don't need any fancy tools... it's the commonly utilized language to communicate."* |
 | **Bite-Sized Analysis** | Breaks complex datasets into manageable chunks through sorting/filtering. Ideal for ad-hoc exploration. | *"It’s all about making it more manageable and breaking it down into bite-size chunks."* |
 
-#### ⚠️ **Limitations of Spreadsheets**
+### ⚠️ Limitations of Spreadsheets
 | Limitation | Description | Real-World Impact |
 |------------|-------------|-------------------|
 | **Poor Reproducibility** | No audit trail for data transformations (e.g., filtering bad values, imputing missing data). Steps can't be easily shared or repeated. | *"There's no way to tell your colleagues or future self exactly the steps you took to modify that dataset."* |
@@ -204,6 +214,8 @@
    - Use Power Query (Get & Transform) for reproducible data transformations  
 
 ---
+
+## Formula Fundamentals
 
 ### Formula Structure: Core Components
 Every Excel formula follows a consistent syntax made of these elements:
@@ -298,15 +310,18 @@ Every Excel formula follows a consistent syntax made of these elements:
 > ⚠️ **Common Mistake**: Accidentally dragging the **Move Handle** instead of the Fill Handle → permanently deletes source data. Always verify cursor shape!
 
 ### Quick Reference Cheat Sheet
-```excel
+```
 =SUM(B2:B13)          // Sum vertical range
 =B14*20%              // Calculate 20% tax
 =SUM(B2:E2)           // Sum horizontal range
 Alt + =               // AutoSum shortcut
 Double-click fill handle // Auto-fill formula down column
 Ctrl + 1              // Open Format Cells dialog
+```
 
 ---
+
+## Statistical Functions and Categories
 
 ### Common Statistical Functions
 Excel provides built-in statistical functions accessible via **Home → Editing → AutoSum dropdown** or **Formulas → Function Library**.
@@ -334,8 +349,6 @@ Excel provides built-in statistical functions accessible via **Home → Editing 
 
 > 💡 **Pro Tip**: Always verify and adjust the auto-selected range—Excel often guesses incorrectly!
 
----
-
 ### Function Categories & Key Examples
 Access all functions via **Formulas tab → Function Library group**:
 
@@ -352,8 +365,6 @@ Access all functions via **Formulas tab → Function Library group**:
 | **More Functions** | Engineering, Information | Specialized technical calculations |
 
 > ⚠️ **Note**: `CONCATENATE` still works for backward compatibility, but `CONCAT` is preferred in newer Excel versions.
-
----
 
 ### Finding Functions Efficiently
 
@@ -374,8 +385,6 @@ Access all functions via **Formulas tab → Function Library group**:
 - Example: `VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`
 - Hover over arguments to see descriptions
 
----
-
 ### Critical Best Practices
 
 | Practice | Why It Matters |
@@ -389,8 +398,6 @@ Access all functions via **Formulas tab → Function Library group**:
 > 💡 **Real-World Insight**:  
 > Data Analysts spend 80% of time cleaning data—statistical functions only work correctly on **clean, numeric data**. Always check for hidden text, spaces, or error values first!
 
----
-
 ### Quick Reference: Essential Analyst Functions
 
 | Function | Syntax | Example |
@@ -402,3 +409,105 @@ Access all functions via **Formulas tab → Function Library group**:
 | **NETWORKDAYS** | `=NETWORKDAYS(start_date, end_date, [holidays])` | `=NETWORKDAYS(TODAY(), TODAY()+30)` |
 
 ---
+
+## Cell References
+
+### Understanding Cell Reference Types
+
+Excel formulas use three types of cell references that control how cell addresses behave when copied:
+
+| Reference Type | Syntax | Behavior When Copied | Use Case |
+|----------------|--------|----------------------|----------|
+| **Relative** | `A1` | Both column and row adjust relative to new location | Most common; for consistent patterns (e.g., summing columns) |
+| **Absolute** | `$A$1` | Column and row **never change** | Fixed values (e.g., tax rates, constants) |
+| **Mixed** | `A$1` or `$A1` | **One part fixed**, one part relative:<br>• `A$1` = relative column, absolute row<br>• `$A1` = absolute column, relative row | Row/column headers, lookup tables |
+
+### Practical Examples & Behavior
+
+#### 1. Relative References (Default Behavior)
+- **Original formula in E4**: `=A1 + A3`
+- **Copied to E5**: `=A2 + A4`  
+  *(Both references shift down 1 row)*
+- **Copied to C7**: `=C4 + C6`  
+  *(References shift left 2 columns AND down 3 rows)*
+
+> 💡 **When to use**: Calculations that should adapt to new locations (e.g., monthly totals across columns).
+
+#### 2. Absolute References (Locked Cells)
+- **Original formula in E4**: `=$A$1 + $A$3`
+- **Copied anywhere**: Always remains `=$A$1 + $A$3`
+
+> 💡 **When to use**:  
+> - Tax rates (`=$B$1`)  
+> - Fixed conversion factors  
+> - Constants referenced across multiple formulas
+
+#### 3. Mixed References (Partial Locking)
+- **Original formula in G4**: `=A$1 + $A3`
+  - `A$1`: Column **A** adjusts, row **1** stays fixed
+  - `$A3`: Column **A** stays fixed, row **3** adjusts
+- **Copied to G5**: `=A$1 + $A4`  
+  *(Only the relative row in `$A3` changed to `$A4`)*
+- **Copied to H4**: `=B$1 + $A3`  
+  *(Only the relative column in `A$1` changed to `B$1`)*
+
+> 💡 **Real-World Use**:  
+> - **Multiplication tables**: `=$A2*B$1`  
+> - **VLOOKUP with fixed table**: `=VLOOKUP(A2,$D$2:$F$100,2,FALSE)`
+
+### How to Create References Quickly
+
+| Method | Action |
+|--------|--------|
+| **Manual Entry** | Type `$` before column/row (e.g., `$A$1`) |
+| **F4 Key Toggle** | With cursor in formula bar on a reference:<br>• Press `F4` once: `$A$1` (absolute)<br>• Press again: `A$1` (mixed)<br>• Press again: `$A1` (mixed)<br>• Press again: `A1` (relative) |
+| **Formula Bar Selection** | Highlight reference → press `F4` to cycle through options |
+
+> ⚠️ **Critical Tip**: Always verify references after copying formulas—Excel won’t warn you if logic breaks!
+
+---
+
+## Formula Errors and Troubleshooting
+
+### Common Formula Errors & Fixes
+
+| Error | Cause | Solution |
+|-------|-------|----------|
+| **`#####`** | Column too narrow OR negative date/time | Widen column or fix date calculation |
+| **`#NAME?`** | Unrecognized text (e.g., `X` instead of `*` for multiply) | Replace invalid operators; check function spelling |
+| **`#VALUE!`** | Wrong data type (e.g., text in math operation) | Clean data; use `VALUE()` or `TEXT()` functions |
+| **`#DIV/0!`** | Division by zero | Use `IFERROR(formula, "N/A")` or check denominator |
+| **`#REF!`** | Invalid cell reference (e.g., deleted cells) | Restore deleted cells or update references |
+| **`#N/A`** | Value not available (common in `VLOOKUP`) | Verify lookup value exists; use `IFNA()` |
+
+### Error Diagnosis Workflow
+
+1. **Identify the error**: Look for colored triangles (green = potential error)
+2. **Click the warning icon**: Shows error description (e.g., "Invalid name error")
+3. **Use diagnostic tools**:
+   - **Show Calculation Steps**: Highlights exact error location
+   - **Help on this Error**: Opens Microsoft support documentation
+   - **Edit in Formula Bar**: Jumps cursor to error spot
+4. **Apply fixes**:
+   - Correct syntax (e.g., `*` not `X`)
+   - Validate data types
+   - Check cell references
+5. **Prevent recurrence**:
+   - Use `IFERROR()` for risky formulas:  
+     ```
+     =IFERROR(VLOOKUP(A2,B:C,2,0), "Not Found")
+     ```
+   - Enable **Error Checking Options** (`File → Options → Formulas`)
+
+> 💡 **Pro Insight**:  
+> The `#####` "error" is just a display issue—**never** indicates calculation problems. Always widen columns first before troubleshooting!
+
+### Quick Reference Cheat Sheet
+
+| Task | Formula Example |
+|------|-----------------|
+| **Fixed tax rate** | `=B2*$E$1` |
+| **Dynamic multiplication table** | `=$A2*B$1` |
+| **Safe division** | `=IF(D2=0, "N/A", C2/D2)` |
+| **Error-proof VLOOKUP** | `=IFNA(VLOOKUP(G2,A:D,4,0), "Missing")` |
+| **Toggle reference type** | Select reference in formula bar → Press `F4` |
