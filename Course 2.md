@@ -204,3 +204,104 @@
    - Use Power Query (Get & Transform) for reproducible data transformations  
 
 ---
+
+### Formula Structure: Core Components
+Every Excel formula follows a consistent syntax made of these elements:
+
+| Component | Description | Example |
+|----------|-------------|---------|
+| **Equal Sign (`=`)** | Required at the start; tells Excel this is a formula, not text | `=` |
+| **Function** | Built-in operation (e.g., `SUM`, `AVERAGE`) | `SUM` |
+| **Reference** | Cell or range to include in calculation; enclosed in parentheses | `B5`, `E2:E13` |
+| **Operators** | Symbols that define the type of calculation: | |
+| &nbsp;&nbsp;• Arithmetic | `+` (add), `-` (subtract), `*` (multiply), `/` (divide) | `B5 * 20` |
+| &nbsp;&nbsp;• Comparison | `=`, `>`, `<`, etc. | `A1 > B1` |
+| &nbsp;&nbsp;• Text | `&` for concatenation | `"Total: " & A1` |
+| **Constants** | Fixed values entered directly (do not change) | `5`, `10%`, `1/1/2026` |
+
+> 💡 **Example**: `=SUM(B5*20)` multiplies the value in B5 by 20, then sums the result (useful for tax or markup calculations).
+
+### Building Basic Formulas
+
+#### Manual vs. Efficient Syntax
+- **Inefficient**: `=SUM(E2,E3,E4)` → works but impractical for large ranges  
+- **Efficient**: `=SUM(E2:E4)` → uses **colon notation** to include all cells from E2 through E4  
+- **For full column**: `=SUM(E2:E13)`  
+
+#### Best Practice: Use Mouse or Keyboard Selection
+1. Type `=SUM(`
+2. Select the desired range using:
+   - **Mouse drag**, or  
+   - **`Shift + arrow keys`**
+3. Press `Enter` → Excel automatically inserts the closing parenthesis
+
+> ⚠️ **Avoid**: Typing each cell reference individually—it’s error-prone and inflexible.
+
+### Copying Formulas: AutoFill & Relative References
+
+#### How to Use the Fill Handle
+1. Create a formula in the first cell (e.g., `=SUM(B2:B13)` in B15)
+2. Hover over the **bottom-right corner** of the cell until the cursor becomes a **thin black cross** (the **Fill Handle**)
+3. **Drag** across or down to copy the formula to adjacent cells
+
+#### Key Behavior: Relative Referencing
+- Original: `=SUM(B2:B13)` in **B15**
+- After dragging to **C15**: `=SUM(C2:C13)`
+- Excel **automatically adjusts** cell references based on relative position
+
+> 💡 **Real-World Application**:  
+> - Subtotal (B15): `=SUM(B2:B13)`  
+> - Tax (B16): `=B15*20%` → drag to C16 → becomes `=C15*20%`  
+> - Total (B17): `=B15+B16` → drag across → auto-adjusts per column
+
+### Time-Saving Excel Shortcuts
+
+| Feature | How to Use | Shortcut |
+|--------|------------|----------|
+| **AutoSum** | 1. Select cell below/next to data<br>2. Go to **Home → Editing → AutoSum**<br>3. Press `Enter` | `Alt + =` |
+| **Double-Click Fill Handle** | Instantly copy formula down an entire column (stops at last contiguous data row) | Double-click fill handle |
+| **Edit Formula** | Click cell → edit in formula bar, press `F2`, or double-click cell | `F2` |
+
+> ✅ **Pro Workflow for Monthly Totals**:  
+> 1. In F2, type `=SUM(B2:E2)`  
+> 2. **Double-click the fill handle** → formula auto-fills down to F13 (no dragging needed)
+
+### Practical Example: Sales Report with Subtotals, Tax, and Totals
+
+#### Step-by-Step Setup
+1. **Add headers**:  
+   - Row 14: `Subtotals`  
+   - Row 15: `Tax (20%)`  
+   - Row 16: `Total`
+2. **Subtotals**:  
+   - B14: `=SUM(B2:B13)` → drag fill handle to E14
+3. **Tax**:  
+   - B15: `=B14*20%` → drag to E15
+4. **Totals**:  
+   - B16: `=B14+B15` → drag to E16
+5. **Monthly Totals (by row)**:  
+   - F2: Use **AutoSum** (`Alt + =`) or `=SUM(B2:E2)` → **double-click fill handle** to copy down
+6. **Format as Currency**:  
+   - Select all values → **Home → Number → $ (Currency)**
+
+> 💡 **Column Width Tip**: Double-click the right edge of a column header to auto-fit content.
+
+### Critical Concepts to Remember
+
+| Concept | Explanation |
+|--------|-------------|
+| **Relative References** | Formulas adjust cell addresses when copied (e.g., `B2` → `C2` when dragged right) |
+| **Fill Handle ≠ Move Handle** | • **Small black cross** (bottom-right) = **Copy/Fill**<br>• **Thin cross with arrows** (cell edge) = **Move** (deletes original!) |
+| **AutoSum Requirement** | Only works with **contiguous data**—fails if blank rows/columns interrupt the range |
+| **Order of Operations** | Use parentheses to control calculation sequence: `=(A1+B1)*C1` ≠ `=A1+B1*C1` |
+
+> ⚠️ **Common Mistake**: Accidentally dragging the **Move Handle** instead of the Fill Handle → permanently deletes source data. Always verify cursor shape!
+
+### Quick Reference Cheat Sheet
+```excel
+=SUM(B2:B13)          // Sum vertical range
+=B14*20%              // Calculate 20% tax
+=SUM(B2:E2)           // Sum horizontal range
+Alt + =               // AutoSum shortcut
+Double-click fill handle // Auto-fill formula down column
+Ctrl + 1              // Open Format Cells dialog
