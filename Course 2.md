@@ -1,4 +1,4 @@
-# IBM Business Analysis Course: Excel Track
+# IBM Business Analysis Course: Excel Track  
 *Comprehensive Notes for Revision*
 
 ## Table of Contents
@@ -10,7 +10,9 @@
 - [Statistical Functions and Categories](#statistical-functions-and-categories)
 - [Cell References](#cell-references)
 - [Formula Errors and Troubleshooting](#formula-errors-and-troubleshooting)
-
+- [Video 3: Dealing with Inaccurate, Empty, and Duplicated Data](#video-3-dealing-with-inaccurate-empty-and-duplicated-data)
+- [Video 4: Changing Text Case, Fixing Date Formats, and Trimming Whitespace](#video-4-changing-text-case-fixing-date-formats-and-trimming-whitespace)
+- [Video 5: Using Flash Fill and Text to Columns for Data Cleaning](#video-5-using-flash-fill-and-text-to-columns-for-data-cleaning)
 ---
 
 ## Video 1: Introduction to Spreadsheets
@@ -511,3 +513,208 @@ Excel formulas use three types of cell references that control how cell addresse
 | **Safe division** | `=IF(D2=0, "N/A", C2/D2)` |
 | **Error-proof VLOOKUP** | `=IFNA(VLOOKUP(G2,A:D,4,0), "Missing")` |
 | **Toggle reference type** | Select reference in formula bar → Press `F4` |
+
+---
+
+## Video 3: Dealing with Inaccurate, Empty, and Duplicated Data
+
+### Introduction to Data Cleaning
+- **Common Issues in Data**: Spelling mistakes, extra whitespace, wrong case in text, empty rows, missing values, inaccurate or duplicated data.
+- **Impacts of Errors**: Formulas not working, unsuccessful sorting/filtering, inadequate visualization and presentation of findings.
+- **Importance**: Data cleaning improves quality and usability, especially after collecting or importing data (manual or automated processes).
+
+### Spell Checking
+- **Process**: Similar to Microsoft Word or other word processors.
+- **Steps**:
+  1. Select the data range or column to check (e.g., Column K: Product Line, Column T: Country, Column X: Deal Size).
+  2. Go to **Review tab → Spelling**.
+  3. Review suggestions: Click **Change** to accept, choose another suggestion, or **Ignore** if correct.
+- **Examples**:
+  - Misspelled country names (e.g., typos in Column T).
+  - Misspellings like "small" or "medium" in Deal Size (Column X).
+- **💡 Tip**: Check one column at a time for targeted corrections.
+
+### Removing Empty Rows
+- **Issues Caused**: Problems with navigation (e.g., `Ctrl + ↓` stops at empty rows), formulas, sorting, and filtering. Splits dataset into sections.
+- **Manual Method**: Scroll and delete rows individually—suitable for small datasets but laborious for large ones (hundreds/thousands of rows).
+- **Efficient Method Using Filters**:
+  1. Select all data (mouse or `Ctrl + Shift + End`).
+  2. Go to **Data tab → Filter**.
+  3. Click filter icon on a column (e.g., Customer Name in Column M).
+  4. Uncheck **Select All**, scroll to bottom, check **Blanks**, click **OK**.
+  5. Empty rows appear at top (identified by row numbers in blue, e.g., rows 28, 29, 65, 73-75, 117).
+  6. Select these rows (mouse or from first blank cell like A28, then `Ctrl + Shift + End`).
+  7. Delete the rows.
+  8. Clear filter: **Data tab → Clear** (or turn off Filter).
+- **Verification**: Use `Ctrl + ↓` from top to ensure it jumps directly to the end of the data.
+- **⚠️ Warning**: Empty rows can make datasets appear fragmented.
+
+### Removing Duplicated Rows
+- **Causes**: Human input errors or import process issues.
+- **Key Principle**: Select a column unlikely to have natural duplicates (e.g., Sales in Column E, not Price Each in Column C).
+- **Method 1: Review Before Deleting (Preferred for Security)**:
+  1. Select the column (e.g., Sales in E).
+  2. Go to **Home tab → Conditional Formatting → Highlight Cells Rules → Duplicate Values**.
+  3. Click **OK**—duplicates are highlighted (e.g., rows 36-40 and 74-78).
+  4. Review: Zoom out to compare sections (e.g., out-of-sequence duplicates like Motorcycles in Ships section).
+  5. Delete the duplicate rows manually (e.g., second section).
+- **Method 2: Quick Removal (Simpler but Less Secure)**:
+  1. Select entire dataset.
+  2. Go to **Data tab → Remove Duplicates**.
+  3. Unselect all columns, then select only the key column (e.g., Sales).
+  4. Click **OK**—duplicates are removed automatically.
+- **💡 Tip**: Always preview duplicates in Method 1 to avoid accidental data loss.
+
+### Using Find & Replace for Corrections
+- **Location**: **Home tab → Find & Select → Replace**.
+- **Steps**:
+  1. Enter incorrect text in **Find what** (e.g., misspelled surname "Larson").
+  2. Click **Find Next** or **Find All** to list instances.
+  3. Enter correction in **Replace with** (e.g., "Larsson").
+  4. Click **Replace All**.
+- **Example**: Correcting multiple instances of a misspelled customer surname based on email feedback.
+- **✅ Pro Tip**: Familiar from other Office apps like Word; use for batch corrections like names or terms.
+
+### Key Takeaways
+- Focus on spell checking, empty rows, duplicates, and find/replace to handle common inaccuracies.
+- Improves data quality post-import/collection.
+- Next: Changing text case, fixing date formats, trimming whitespace.
+
+---
+
+## Video 4: Changing Text Case, Fixing Date Formats, and Trimming Whitespace
+
+### Introduction
+- **Common Issues**: Mixed case text (uppercase, lowercase, proper case) from varying sources; inconsistent or region-unsuitable date formats; unwanted whitespace (leading/trailing spaces, double spaces).
+- **Importance**: Standardize text for consistency; ensure dates are readable and compatible; remove whitespace to prevent errors in formulas, sorting, and analysis.
+- **Tools**: Functions like UPPER, LOWER, PROPER for case; Number Format dialog for dates; Find & Replace and TRIM for whitespace.
+
+### Changing Text Case Using Functions
+- **No Direct Button**: Unlike Word, use UPPER, LOWER, PROPER functions with helper rows/columns.
+- **PROPER Function (Proper Case)**:
+  - **Example**: Change header row (e.g., Row 1) from uppercase to proper case.
+  - **Steps**:
+    1. Insert helper row (e.g., Row 2).
+    2. In A2: `=PROPER(A1)`, press Enter.
+    3. Fill across: Select A2:X2 (Shift + Right Arrow), press F2 to edit A2, then Ctrl + Enter.
+    4. Copy Row 2, paste to Row 1 using **Paste Values** (Home tab → Paste → Paste Values).
+    5. Delete helper row (avoid direct delete to prevent #REF! errors).
+- **UPPER Function (Uppercase)**:
+  - **Example**: Change proper case to uppercase (e.g., Country in Column T).
+  - **Steps**:
+    1. Insert helper column (e.g., to right of T).
+    2. In new cell (e.g., U2): `=UPPER(T2)`, press Enter.
+    3. Double-click Fill Handle to copy down.
+    4. Copy helper column, paste to original (T) using **Paste Values**.
+    5. Delete helper column.
+- **LOWER Function (Lowercase)**:
+  - **Example**: Change proper case to lowercase (e.g., Product Line in Column K).
+  - **Steps**: Same as UPPER, but use `=LOWER(K2)`.
+- **⚠️ Warning**: Always use Paste Values to avoid formula references breaking.
+- **💡 Tip**: Double-click Fill Handle for quick vertical copy; use for large datasets.
+
+### Fixing Date Formatting Errors
+- **Common Issues**: Mixed formats (e.g., DD/MM/YYYY vs. MM/DD/YYYY); region mismatches.
+- **Steps for Standard Formats**:
+  1. Select date column.
+  2. Open **Format Cells** (Ctrl + 1) → Number tab → Date category.
+  3. Change Locale (e.g., from English (UK) to English (US)).
+  4. Select a format (e.g., full month name, 2-digit day, 4-digit year).
+  5. Apply and copy format down if needed.
+- **Custom Formats**:
+  1. In Format Cells → Custom category.
+  2. Modify an existing format (e.g., change to "dd mmm yyyy" for day, 3-letter month, year).
+  3. Apply to selection or use Format Painter (Home tab) to copy to rest of column.
+- **✅ Pro Tip**: Select entire column for batch formatting; custom formats persist in the list for reuse.
+
+### Trimming Whitespace
+- **Types**: Leading/trailing spaces, double spaces between words.
+- **Using Find & Replace (for Double Spaces)**:
+  1. Select data range.
+  2. Home tab → Find & Select → Replace.
+  3. **Find what**: Double space (press space twice).
+  4. **Replace with**: Single space.
+  5. Click **Find Next** and **Replace** individually (safer), or **Replace All** for large datasets.
+- **Limitations**: Can't remove single leading/trailing spaces without affecting word spaces.
+- **TRIM Function (for All Extra Spaces)**:
+  - **Steps**:
+    1. Insert helper column (e.g., next to Column M: Customer Name).
+    2. In helper cell (e.g., N2): `=TRIM(M2)`, press Enter.
+    3. Double-click Fill Handle to copy down.
+    4. Copy helper column, paste to original (M) using **Paste Values**.
+    5. Delete helper column.
+- **💡 Tip**: TRIM removes leading/trailing and reduces multiple internal spaces to single; combine with Find & Replace for thorough cleaning.
+- **⚠️ Warning**: Replace All can save time but verify changes to avoid unintended removals.
+
+### Key Takeaways
+- Use helper rows/columns with case functions and Paste Values for text standardization.
+- Format Cells dialog for date adjustments, including custom formats.
+- Find & Replace for double spaces; TRIM for comprehensive whitespace removal.
+- Next: Using Flash Fill and Text to Columns for data cleaning.
+
+---
+
+## Video 5: Using Flash Fill and Text to Columns for Data Cleaning
+
+### Introduction
+- **Flash Fill Recap**: Previously used for patterned data entry (e.g., months, days); also useful for cleaning by splitting/combining names or modifying naming conventions.
+- **Text to Columns**: Splits multi-part text (e.g., full names, addresses) into separate columns; not available in Excel for the web—use functions instead.
+- **Functions Alternative**: More flexible for complex/mixed names (e.g., hyphenated, middle initials).
+- **Context**: Applied to datasets like vehicle toy sales (separate first/last names) or customer contacts (full names).
+
+### Using Flash Fill to Combine Columns
+- **Purpose**: Combine separate name columns (e.g., first and last) into one formatted column.
+- **Steps** (e.g., Combining First and Last Names):
+  1. Insert a helper column (e.g., "Contactname").
+  2. In the first data row: Enter the desired format (e.g., Forename space Surname from original columns).
+  3. Press Enter.
+  4. Start typing the second entry—Flash Fill previews the pattern.
+  5. Press Enter to apply to the entire column.
+- **Examples**:
+  - Handles variations like "Wing C" or "Da Cunha".
+- **Cleanup**: Remove original columns if no longer needed.
+- **💡 Tip**: Flash Fill detects patterns automatically; works for custom formats (e.g., Surname, Comma, Forename).
+
+### Using Flash Fill to Modify Naming Conventions
+- **Purpose**: Change format in a single column (e.g., from Forename Surname to Surname, Comma, Forename).
+- **Steps** (e.g., Customer Contacts Worksheet):
+  1. In adjacent column's first data row (e.g., B2): Enter new format (e.g., Surname, comma, space, Forename).
+  2. Press Enter.
+  3. Start typing second entry—Flash Fill previews.
+  4. Press Enter to fill down.
+  5. Copy/paste header if needed; delete original column.
+- **Limitations**: Can't split a single column into multiple—use Text to Columns for that.
+- **⚠️ Warning**: Close without saving if testing; Flash Fill is pattern-based, so verify previews.
+
+### Using Text to Columns to Split Data
+- **Purpose**: Split multi-part text into separate columns (e.g., full names into first/last).
+- **Steps** (e.g., Customer Contacts Worksheet):
+  1. Add/widen headers for new columns (e.g., First Name, Last Name).
+  2. Select data range (e.g., A2:A23).
+  3. Go to **Data tab → Text to Columns** (launches wizard).
+  4. Step 1: Select **Delimited**.
+  5. Step 2: Check **Space** as delimiter (uncheck others).
+  6. Step 3: Set Destination (e.g., B2) via arrow selector.
+  7. Click **Finish**.
+- **Result**: Splits names into new columns (e.g., B and C).
+- **Cleanup**: Remove original column if unnecessary.
+- **✅ Pro Tip**: Use for any delimited text like addresses; preview in wizard.
+
+### Using Functions as an Alternative to Text to Columns
+- **When to Use**: In Excel for the web (no Text to Columns); for complex names (hyphenated, middle initials).
+- **Steps** (e.g., Splitting Full Names):
+  1. Add/widen headers for new columns (e.g., Forename, Surname).
+  2. For Forename (e.g., B2): `=LEFT(A2,5)` (extracts left characters, adjust count as needed; includes space if present).
+  3. For Surname (e.g., C2): `=RIGHT(A2,7)` (extracts right characters, adjust count).
+  4. Double-click Fill Handle on B2 and C2 to AutoFill down.
+- **Flexibility**: Customize for variations (e.g., handle middle initials by adjusting lengths or using more advanced functions like MID).
+- **💡 Tip**: Test formulas on sample data; combine with LEN or FIND for dynamic extraction.
+
+### Key Takeaways
+- Flash Fill: Quick for combining/modifying based on patterns; preview before applying.
+- Text to Columns: Ideal for splitting delimited text; wizard-guided.
+- Functions: Versatile alternative for web Excel or complex cases.
+- Always use helpers/previews to avoid data loss.
+- Next: Further data cleaning topics (not specified in transcript).
+
+---
